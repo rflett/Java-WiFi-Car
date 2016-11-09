@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="theme" stylesheets="@landing.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="au.net.xtelco.ironbark.rflett.cse3mip.controllers.LandingController">
+   <children>
+      <BorderPane layoutX="383.0" layoutY="131.0" prefHeight="720.0" prefWidth="1280.0" styleClass="theme" stylesheets="@landing.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#handleFileSave" text="Save" />
+                    <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#handleClose" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="How to..." />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <HBox prefHeight="201.0" prefWidth="1280.0">
+               <children>
+                  <VBox prefHeight="223.0" prefWidth="337.0">
+                     <children>
+                        <Label text="Select a car to control from the drop down menu." />
+                        <ComboBox fx:id="carSelection" onAction="#handleCarSelection" prefHeight="25.0" prefWidth="262.0">
+                           <VBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <Button fx:id="controlButton" mnemonicParsing="false" onAction="#handleControl" prefHeight="60.0" prefWidth="262.0" text="Control">
+                           <VBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="201.0" prefWidth="355.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="380.0" text="To add, modify or delete a car, click the buttons below.">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="45.0" prefWidth="194.0">
+                           <children>
+                              <Button fx:id="newButton" mnemonicParsing="false" onAction="#handleNew" prefHeight="45.0" prefWidth="194.0" text="New">
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+						</HBox>
+                        <HBox layoutX="10.0" layoutY="82.0" prefHeight="45.0" prefWidth="194.0">
+                           <children>
+                              <Button fx:id="modifyButton" mnemonicParsing="false" onAction="#handleModify" prefHeight="45.0" prefWidth="97.0" text="Modify">
+                                 <VBox.margin>
+                                    <Insets left="80.0" top="10.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="70.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="45.0" prefWidth="92.0" text="Delete">
+                                 <VBox.margin>
+                                    <Insets left="120.0" top="10.0" />
+                                 </VBox.margin>
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="landingImage" fitHeight="440.0" fitWidth="900.0" layoutX="200.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@images/holder.png" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="vbox" layoutX="400.0" layoutY="150.0" prefHeight="196.0" prefWidth="435.0">
+                     <children>
+                        <GridPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="309.0" vgap="8.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="88.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="221.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="nameLabel" text="Name:" />
+                              <Label fx:id="usernameLabel" text="Username:" GridPane.rowIndex="1" />
+                              <Label fx:id="passwordLabel" text="Password:" GridPane.rowIndex="2" />
+                              <Label fx:id="IPLabel" text="IP:" GridPane.rowIndex="3" />
+                              <Label fx:id="portLabel" text="Port:" GridPane.rowIndex="4" />
+                              <TextField fx:id="nameField" GridPane.columnIndex="1" />
+                              <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="IPField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="portField" alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" text="22" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="nameField_m" GridPane.columnIndex="1" />
+                              <TextField fx:id="usernameField_m" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="passwordField_m" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="IPField_m" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="portField_m" alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" text="22" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="nameLabel_m" text="Name:" />
+                              <Label fx:id="usernameLabel_m" text="Username:" GridPane.rowIndex="1" />
+                              <Label fx:id="passwordLabel_m" text="Password:" GridPane.rowIndex="2" />
+                              <Label fx:id="IPLabel_m" text="IP:" GridPane.rowIndex="3" />
+                              <Label fx:id="portLabel_m" text="Port:" GridPane.rowIndex="4" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="55.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <Pane prefHeight="51.0" prefWidth="435.0">
+                           <children>
+                              <Button fx:id="saveButton" layoutX="155.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+                              <Button fx:id="cancelButton" layoutX="224.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+                              <Button fx:id="modifySaveButton" layoutX="155.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleModifySave" text="Save" />
+                              <Button fx:id="cancelButton_m" layoutX="224.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleCancel_m" text="Cancel" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <WebView fx:id="videoContainer" layoutX="200.0" layoutY="10.0" maxHeight="440.0" maxWidth="900.0" minHeight="440.0" minWidth="900.0" prefHeight="440.0" prefWidth="900.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

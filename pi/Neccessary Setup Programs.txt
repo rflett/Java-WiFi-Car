@@ -1,0 +1,35 @@
+sudo raspi-config
+Turn on Camera
+Turn on Modest level overclocking for smooth video streaming
+Turn on SSH
+
+Start VNC and FTP services through SSH with 
+sudo tightvncserver 
+and
+sudo vsftpd 
+
+Sudo apt-get install vlc
+Sudo apt-get install arduino (Only for programming not needed for actual product use)
+sudo apt-get install tightVNCserver(OPTIONAL only if GUI is needed)
+sudo apt-get install vsftpd
+sudo apt-get install apache2 (Required to stream pi video from webserver)
+
+Streaming camera require VLC player and is started by entering the following line in SSH
+raspivid -o - -t 0 -h 440 -w 900 | cvlc -v -I "dummy" stream:///dev/stdin  :sout="#std{access=livehttp{seglen=10,delsegs=true,numsegs=5, index=/var/www/streaming/stream.m3u8, index-url=http://192.168.0.40/streaming/stream-########.ts}, mux=ts{use-key-frames}, dst=/var/www/streaming/stream-########.ts}" :demux=h264
+http://IP ADDRESS/streaming/stream.m3u8
+
+
+mkdir /tmp/stream
+sudo raspistill --nopreview -w 450 -h 220 -q 5 -ss 50 -o /tmp/stream/pic.jpg -tl 50 -t 9999999 -th 0:0:0 &
+sudo raspimjpeg -w 900 -h 440 -d 1 -of /tmp/stream/pic.jpg
+ 
+LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /dev/shm/mjpeg/cam.jpg -n pic.jpg" -o "output_http.so -p 9000 -w /usr/local/www" &
+ 
+ sudo killall raspistill 
+ to stop streaming
+ 
+ 
+ echo "pinNUmber" > /sys/class/gpio/export
+ echo "out" > /sys/class/gpio/gpioNUMBER/direction 
+ 
+ /var/www/image_%04d_%04d%02d%02d_%02d%02d%02d.jpg
